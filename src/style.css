@@ -1,5 +1,6 @@
 @import "bootstrap/dist/css/bootstrap.min.css";
 
-body{
-    background: white;
+#card {
+  width: min(90vw, 16rem);
+  height: 22rem;
 }
