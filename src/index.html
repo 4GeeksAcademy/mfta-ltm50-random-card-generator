@@ -7,28 +7,108 @@
     <title>Hello Rigo with Vanilla.js</title>
 
     <!-- Fontawesome is our recomended library for icons -->
-    <link
-      rel="stylesheet"
-      href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"
-      integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ"
-      crossorigin="anonymous"
-    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   </head>
   <body
-    class="bg-success min-vh-100 d-flex justify-content-center align-items-center"
+    class="bg-success min-vh-100 d-flex flex-column justify-content-start align-items-center p-5"
   >
-    <!-- Card -->
+    <!-- Controls Panel -->
     <div
-      id="card"
-      class="d-flex flex-column border bg-white rounded-4 py-2 px-3 justify-content-between shadow"
+      class="d-flex flex-column align-items-center mb-5"
+      style="width: min(95vw, 24rem)"
     >
-      <div id="suit-top" class="d-flex display-3"></div>
-      <div
-        id="number"
-        class="d-flex justify-content-center display-1 fw-semibold"
-      ></div>
-      <div id="suit-bottom" class="d-flex display-3"></div>
+
+      <!-- Timer duration -->
+      <div class="row w-100 mb-4">
+        <div class="col-12 px-1">
+          <label for="duration" class="form-label text-white fw-medium">
+            <i class="fa-regular fa-clock"></i> Timer Duration (in seconds)
+        </div>
+        <div class="col-6 px-1">
+          <input
+            id="duration"
+            type="number"
+            min="1"
+            max="60"
+            class="form-control me-2 w-100"
+            placeholder="Duration"
+          />
+        </div>
+
+        <div class="col-6 px-1">
+          <button id="start-timer" class="btn btn-warning w-100" type="button">
+            Start Timer
+          </button>
+        </div>
+      </div>
+
+      <!-- Card dimensions -->
+      <div class="row w-100 mb-4">
+        <div class="col-12 px-1">
+          <p class="form-label text-white fw-medium">
+            <i class="fa-solid fa-expand"></i> Card Dimensions (in pixels)
+          </p>
+        </div>
+
+        <div class="col-3 px-1">
+          <input
+            id="width"
+            type="number"
+            min="100"
+            max="1000"
+            class="form-control me-2"
+            placeholder="Width"
+          />
+        </div>
+
+        <div class="col-3 px-1">
+          <input
+            id="height"
+            type="number"
+            min="100"
+            max="1000"
+            class="form-control me-2"
+            placeholder="Height"
+          />
+        </div>
+        <div class="col-6 px-1">
+          <button id="set-dimensions" class="btn btn-warning w-100" type="button">
+            Set Dimensions
+          </button>
+        </div>
+      </div>
+
     </div>
+
+    <!-- Card Container -->
+    <div
+      id="card-container"
+      class="d-flex flex-column justify-content-center align-items-center mb-5"
+    >
+      <!-- CountDown Display -->
+      <div
+        class="countdown d-flex justify-content-center align-items-center text-white display-1 mb-3"
+      >
+      </div>
+
+      <!-- Card -->
+      <div
+        class="poker-card d-flex flex-column border bg-white rounded-4 py-2 px-3 justify-content-between shadow"
+      >
+        <div id="suit-top" class="d-flex display-3"></div>
+        <div
+          id="number"
+          class="d-flex justify-content-center display-1 fw-semibold"
+        ></div>
+        <div id="suit-bottom" class="d-flex display-3"></div>
+      </div>
+    </div>
+
+    <!-- Card Generation Button -->
+    <button id="generate-card" class="btn btn-warning mb-3 px-4" type="button">
+      Generate Card Now
+    </button>
+
     <!-- Do not delete this script tag, this is what connects your HTML with the Javascript code -->
     <script type="module" src="/app.js"></script>
   </body>

@@ -1,6 +1,6 @@
 @import "bootstrap/dist/css/bootstrap.min.css";
 
-#card {
+.poker-card, .countdown {
   width: min(90vw, 16rem);
   height: 22rem;
 }
