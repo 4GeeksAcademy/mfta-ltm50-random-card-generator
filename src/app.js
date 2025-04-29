@@ -63,6 +63,13 @@ function generateRandomCardWithDelay(delayInSeconds) {
   , 1000);
 }
 
+// Function to set the width and height of the card
+function setCardSize(width, height) {
+  const card = document.querySelector(".poker-card");
+  card.style.width = `${width}px`;
+  card.style.height = `${height}px`;
+}
+
 // Add event listener to the button to generate a random card
 document.querySelector("#generate-card").addEventListener("click", generateRandomCard);
 
@@ -80,6 +87,31 @@ document.querySelector("#start-timer").addEventListener("click", () => {
   } else {
     alert("Please enter a valid number greater than 0.");
   }
+});
+
+// Add event listener to the button to set the card size
+document.querySelector("#set-size").addEventListener("click", () => {
+  // Set the minimum width and height of the card
+  const minWidth = 100;
+  const minHeight = 150;
+  // Set the maximum width and height of the card
+  const maxWidth = 500;
+  const maxHeight = 750;
+
+  // Get the width and height input values and validate them
+  const widthInput = document.querySelector("#width").value;
+  const heightInput = document.querySelector("#height").value;
+  const width = parseInt(widthInput, 10);
+  const height = parseInt(heightInput, 10);
+  
+  if (!isNaN(width) && width >= minWidth && width <= maxWidth && !isNaN(height) && height >= minHeight && height <= maxHeight) {
+    setCardSize(width, height);
+  } else {
+    alert(`Please enter a valid number between ${minWidth} and ${maxWidth} for width and between ${minHeight} and ${maxHeight} for height.`);
+  }
+  // Reset the input values
+  document.querySelector("#width").value = "";
+  document.querySelector("#height").value = "";
 });
 
 // Generate a random card when the page loads
